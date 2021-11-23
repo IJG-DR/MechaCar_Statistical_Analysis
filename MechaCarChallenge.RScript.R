@@ -50,16 +50,45 @@ plt + geom_boxplot(fill = "plum", colour="black",outlier.color="darkmagenta") #a
 ### DELIVERABLE 3
 ############################################################
 
+# Visually inspect the data for normality using a distribution plot
+plt <- ggplot(coilData,aes(x=PSI)) #import dataset into ggplot2
+plt + geom_density() #visualize distribution using density plot
 
+# Visually inspect distribution of Lot 1
+psiLot1 <- coilData[coilData$Manufacturing_Lot == 'Lot1',]
+head(psiLot1)
+plt <- ggplot(psiLot1,aes(x=PSI))
+plt + geom_density()
 
+# Visually inspect distribution of Lot 2
+psiLot2 <- coilData[coilData$Manufacturing_Lot == 'Lot2',]
+head(psiLot2)
+plt <- ggplot(psiLot2,aes(x=PSI))
+plt + geom_density()
 
+# Visually inspect distribution of Lot 3
+psiLot3 <- coilData[coilData$Manufacturing_Lot == 'Lot3',]
+head(psiLot3)
+plt <- ggplot(psiLot3,aes(x=PSI))
+plt + geom_density()
 
+# Apply the shapiro test to the population and to each lot
+shapiro.test(coilData$PSI)
+shapiro.test(psiLot1$PSI)
+shapiro.test(psiLot2$PSI)
+shapiro.test(psiLot3$PSI)
 
+# Apply a one sample t-test to determine if the PSI across 
+# all manufacturing lots is statistically different from 
+# the population mean of 1,500 pounds per square inch.
+psiSample <- coilData %>% sample_n(15) # select a random sample
+t.test(psiSample$PSI,mu=mean(coilData$PSI))
 
+# Apply the t-test using subset function to test for Lot1
+t.test( sample_n(coilData,15)$PSI, mu=mean(coilData$PSI), subset=subset(coilData, Manufacturing_Lot == 'Lot1'))
 
+# Apply the t-test using subset function to test for Lot2
+t.test( sample_n(coilData,15)$PSI, mu=mean(coilData$PSI), subset=subset(coilData, Manufacturing_Lot == 'Lot2'))
 
-
-
-
-
-
+# Apply the t-test using subset function to test for Lot3
+t.test( sample_n(coilData,15)$PSI, mu=mean(coilData$PSI), subset=subset(coilData, Manufacturing_Lot == 'Lot3'))
