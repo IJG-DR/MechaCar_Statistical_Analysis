@@ -82,17 +82,15 @@ shapiro.test(psiLot3$PSI)
 # Apply a one sample t-test to determine if the PSI across 
 # all manufacturing lots is statistically different from 
 # the population mean of 1,500 pounds per square inch.
-psiSample <- coilData %>% sample_n(15) # select a random sample
+psiSample <- coilData %>% sample_n(30) # select a random sample
 t.test(psiSample$PSI,mu=mean(coilData$PSI))
 
 # Apply the t-test using subset function to test for Lot1
-t.test( sample_n(coilData,15)$PSI, mu=mean(coilData$PSI), subset=subset(coilData, Manufacturing_Lot == 'Lot1'))
+t.test( sample_n(coilData,30)$PSI, mu=mean(coilData$PSI), subset=subset(coilData, Manufacturing_Lot == 'Lot1'))
 
 # Apply the t-test using subset function to test for Lot2
-t.test( sample_n(coilData,15)$PSI, mu=mean(coilData$PSI), subset=subset(coilData, Manufacturing_Lot == 'Lot2'))
+t.test( sample_n(coilData,30)$PSI, mu=mean(coilData$PSI), subset=subset(coilData, Manufacturing_Lot == 'Lot2'))
 
 # Apply the t-test using subset function to test for Lot3
-t.test( sample_n(coilData,15)$PSI, mu=mean(coilData$PSI), subset=subset(coilData, Manufacturing_Lot == 'Lot3'))
+t.test( sample_n(coilData,30)$PSI, mu=mean(coilData$PSI), subset=subset(coilData, Manufacturing_Lot == 'Lot3'))
 
-?ggplot()
-?t.test()

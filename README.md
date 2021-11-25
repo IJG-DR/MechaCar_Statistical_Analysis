@@ -47,13 +47,13 @@ To determine if the manufacturing data meets this design specification, we first
 
 ![PSI Total Summary](Resources/images/psi_total_summary.png)
 
-As reported, for the whole population, the design specification seems to be meet, since the variance reported was 62.29356 psi, a value within the 100 psi specification. However, we also looked at the variance for each lot, to determine whether this held true for each.
+For the whole population, the design specification seems to be met, since the variance reported was 62.29356 psi, a value within the 100 psi specification. However, we also looked at the variance for each lot, to determine whether this held true for each.
 
 The following table presents the summary statistics for each lot:
 
 ![PSI Lot Summary](Resources/images/psi_lot_summary.png)
 
-As can be seen, Lot 1 and Lot 2 are meeting the manufacturing specifications, since their reported variance were 0.98 psi and 7.47 psi respectively. Lot 3, on the other hand, reported a variance of 170.29 psi, which is significantly higher than the manufacturing specification of no more than 100 psi. 
+As can be seen, Lot 1 and Lot 2 are meeting the manufacturing specifications, since their reported variance were 0.98 psi and 7.47 psi respectively. Lot 3, on the other hand, reported a variance of 170.29 psi, which is significantly higher than the manufacturing specification of 100 psi. 
 
 Therefore, while the manufacturing data meets this specification for the lots in total, it is not being met by all lots individually. 
 
@@ -65,22 +65,48 @@ The following box plot provides a better appreciation of the statistics for each
 
 ## Deliverable 3 - T-Tests on Suspension Coils
 
+For our third statistical analysis, we used *R*'s *t.test()* function to conduct t-tests to determine if all manufacturing lots and each lot individually are statistically different from the population mean of 1,500 pounds per square inch.
+
+Before conducting the different t-tests, we inspected the data to understand if it conformed to a normal distribution. This was done visually for the whole population as well as for each lot, using *ggplot2*'s *geom_density()* function. Then, we conducted a Shapiro-Wilk test using *R*'s *shapiro.test()* function on the whole population as well as on each lot. The results are as follows:
+
+
+### Data for the Whole Population
+
 ![PSI Population Distribution](Resources/images/psi_population_dist.png)
+
+
+### Data for the Whole Lot 1
 
 ![Lot 1 PSI Distribution](Resources/images/psi_lot1_distribution.png)
 
+
+### Data for the Whole Lot 2
+
 ![Lot 2 PSI Distribution](Resources/images/psi_lot2_distribution.png)
+
+
+### Data for the Whole Lot 3
 
 ![Lot 3 PSI Distribution](Resources/images/psi_lot3_distribution.png)
 
+### Shapiro Test for Each Group
+
 ![Shapiro Normality Tests](Resources/images/shapiro_normality_tests.png)
 
+After considering the data, and seeing that visually both the population, Lot 2 and Lot 3 have minor skewness, and that only Lot 2 has a  a *p-value* greater than 0.05 in order to meet our significance level for the Shapiro-Wilks Test, we opted for a minimum sample size greater than 20 in conducting one sample t-tests, in order to rely on the *Central Limit Theorem* (source: https://www.spss-tutorials.com/spss-shapiro-wilk-test-for-normality/). 
+
+These t-tests were conducted for the whole population as well as for each lot using *R*'s *t.test()* function with the *subset* argument. We also used a sample size of 30 to be on the safe side.
+
+### T-Test for the Population
 ![One-Sample T-Test - Population](Resources/images/onesample_t-test_population.png)
 
+### T-Test for Lot 1
 ![One-Sample T-Test - Lot 1](Resources/images/onesample_t-test_lot1.png)
 
+### T-Test for Lot 2
 ![One-Sample T-Test - Lot 2](Resources/images/onesample_t-test_lot2.png)
 
+### T-Test for Lot 3
 ![One-Sample T-Test - Lot 3](Resources/images/onesample_t-test_lot3.png)
 
 
