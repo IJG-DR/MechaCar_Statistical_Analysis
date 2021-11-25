@@ -31,9 +31,25 @@ Module 15 Repository
 
 ## Deliverable 3 - T-Tests on Suspension Coils
 
-![](Resources/images/.png)
+![PSI Population Distribution](Resources/images/psi_population_dist.png)
 
-![](Resources/images/.png)
+![Lot 1 PSI Distribution](Resources/images/psi_lot1_distribution.png)
+
+![Lot 2 PSI Distribution](Resources/images/psi_lot2_distribution.png)
+
+![Lot 3 PSI Distribution](Resources/images/psi_lot3_distribution.png)
+
+![Shapiro Normality Tests](Resources/images/shapiro_normality_tests.png)
+
+![One-Sample T-Test - Population](Resources/images/onesample_t-test_population.png)
+
+![One-Sample T-Test - Lot 1](Resources/images/onesample_t-test_lot1.png)
+
+![One-Sample T-Test - Lot 2](Resources/images/onesample_t-test_lot2.png)
+
+![One-Sample T-Test - Lot 3](Resources/images/onesample_t-test_lot3.png)
+
+
 
 
 ## Deliverable 4 - Study Design: MechaCar vs Competition

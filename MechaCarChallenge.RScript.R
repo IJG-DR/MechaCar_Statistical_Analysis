@@ -41,6 +41,7 @@ total_summary <- coilData %>% summarize(Mean=mean(PSI), Median=median(PSI), Vari
 lot_summary <- coilData %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mean(PSI), Median=median(PSI), Variance=var(PSI), SD=sd(PSI), .groups = 'keep')
 
 # Complement analysis with a box-plot graph
+library(ggplot2) # load ggplot
 plt <- ggplot(coilData,aes(x=Manufacturing_Lot,y=PSI)) #import dataset into ggplot2
 plt + geom_boxplot(fill = "plum", colour="black",outlier.color="darkmagenta") #add boxplot and aesthetics
 
@@ -92,3 +93,6 @@ t.test( sample_n(coilData,15)$PSI, mu=mean(coilData$PSI), subset=subset(coilData
 
 # Apply the t-test using subset function to test for Lot3
 t.test( sample_n(coilData,15)$PSI, mu=mean(coilData$PSI), subset=subset(coilData, Manufacturing_Lot == 'Lot3'))
+
+?ggplot()
+?t.test()
