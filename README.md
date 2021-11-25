@@ -15,11 +15,11 @@ Our first analysis consists of a multiple linear regression using *R*'s *lm()* f
 * ground_clearance (*ground_clearance* or *gc* for short)
 * All-wheel-drive (*AWD*)
 
-The resulting regression is:
+The resulting regression formula is:
 
 mpg = 6.267 vl + 0.001245 vw + 0.06877 sa + 3.546 gc - 3.411 AWD - 104.0
 
-The following image shows the resulting *R* linear regression coefficientes and their relative weights as well as the intercept.
+The following image shows the resulting *R* linear regression coefficients and their relative weights as well as the intercept.
 
 ![Linear Regression](Resources/images/linear_regression.png)
 
@@ -36,17 +36,31 @@ From these results, we can answer the following questions:
 * *Does this linear model predict mpg of MechaCar prototypes effectively? Why or why not?* The *R-squared* value of our linear regression is 0.7149, which means that roughly 71.5% of mpg performance is explained by our regression formula, given a significance level of 0.05% since the *p-value* in the summary statistics resulted in 5.35e-11, which is substantially lower than our significance level.
 
 
+
 ## Deliverable 2 - Summary Statistics on Suspension Coils
+
+The second statistical analysis we conducted focused on PSI (pounds per square inch) in suspension coils. These coils were manufactured in three batches or lots.
+
+The design specifications for the MechaCar suspension coils dictate that the variance of the suspension coils must not exceed 100 pounds per square inch.
+
+To determine if the manufacturing data meets this design specification, we first conducted summary statistics on the data population, as reported in the following table.
 
 ![PSI Total Summary](Resources/images/psi_total_summary.png)
 
+As reported, for the whole population, the design specification seems to be meet, since the variance reported was 62.29356 psi, a value within the 100 psi specification. However, we also looked at the variance for each lot, to determine whether this held true for each.
+
+The following table presents the summary statistics for each lot:
+
 ![PSI Lot Summary](Resources/images/psi_lot_summary.png)
+
+As can be seen, Lot 1 and Lot 2 are meeting the manufacturing specifications, since their reported variance were 0.98 psi and 7.47 psi respectively. Lot 3, on the other hand, reported a variance of 170.29 psi, which is significantly higher than the manufacturing specification of no more than 100 psi. 
+
+Therefore, while the manufacturing data meets this specification for the lots in total, it is not being met by all lots individually. 
+
+The following box plot provides a better appreciation of the statistics for each manufacturing lot, where the wide variability in Lot 3 is evident when compared to Lot 1 and 2. 
 
 ![PSI Lot Distribution](Resources/images/psi_lot_distribution.png)
 
-
-
-* The design specifications for the MechaCar suspension coils dictate that the variance of the suspension coils must not exceed 100 pounds per square inch. Does the current manufacturing data meet this design specification for all manufacturing lots in total and each lot individually? Why or why not?
 
 
 ## Deliverable 3 - T-Tests on Suspension Coils
