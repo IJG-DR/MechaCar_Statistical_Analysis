@@ -3,7 +3,7 @@ Module 15 Repository
 
 ## Objective and Methodology
 
-Using *R* and *Rstudio*, as well as *R* libraries *dplyr* and *ggplot2*, we conducted several statistical analysis on car performance from data contained in the csv files *MechaCar_mpg.csv* and *Suspension_Coil.csv*. The file *MechaCarChallenge.RScript.R* included in this repository contains the *R* scripts used for our analysis. 
+Using *R* and *Rstudio*, as well as *R* libraries *dplyr* and *ggplot2*, we conducted several statistical analyses on car performance from data contained in the csv files *MechaCar_mpg.csv* and *Suspension_Coil.csv*. The file *MechaCarChallenge.RScript.R* included in this repository contains the *R* scripts used for our analysis. 
 
 ## Deliverable 1 - Linear Regression to Predict MPG
 
@@ -29,7 +29,7 @@ We also ran statistical analysis on the significance of each coefficient in expl
 
 From these results, we can answer the following questions:
 
-* *Which variables/coefficients provided a non-random amount of variance to the mpg values in the dataset?* The variables that provide a non-random amount of variance to the mpg values (as expressed by their low probability in the *Pr>|t| column*) are vehicle length (strong significance) and ground clearance (strong significance) together with the intercept (also strong sinificance), with vehicle weight having a lesser contribution. Spoiler angle and AWD contribute statistically very little to mpg. 
+* *Which variables/coefficients provided a non-random amount of variance to the mpg values in the dataset?* The variables that provide a non-random amount of variance to the mpg values (as expressed by their low probability in the *Pr>|t| column*) are vehicle length (strong significance) and ground clearance (strong significance) together with the intercept (also strong significance), with vehicle weight having a lesser contribution. Spoiler angle and AWD contribute statistically very little to mpg. 
 
 * *Is the slope of the linear model considered to be zero? Why or why not?* The slope of a linear model is the weight of the coefficient. None of the weights reported in our regression summary was equal to zero.
 
@@ -47,13 +47,13 @@ To determine if the manufacturing data meets this design specification, we first
 
 ![PSI Total Summary](Resources/images/psi_total_summary.png)
 
-For the whole population, the design specification seems to be met, since the variance reported was 62.29356 psi, a value within the 100 psi specification. However, we also looked at the variance for each lot, to determine whether this held true for each.
+For the whole population, the design specification seems to be met, since the variance reported was 62.29356 psi, a value within the 100 psi specification. However, we also looked at the variance for each lot, to determine whether this still held true at the lot level.
 
 The following table presents the summary statistics for each lot:
 
 ![PSI Lot Summary](Resources/images/psi_lot_summary.png)
 
-As can be seen, Lot 1 and Lot 2 are meeting the manufacturing specifications, since their reported variance were 0.98 psi and 7.47 psi respectively. Lot 3, on the other hand, reported a variance of 170.29 psi, which is significantly higher than the manufacturing specification of 100 psi. 
+As can be seen, Lot 1 and Lot 2 are meeting the manufacturing specifications, since their reported variances were 0.98 psi and 7.47 psi respectively. Lot 3, on the other hand, reported a variance of 170.29 psi, which is significantly higher than the manufacturing specification of 100 psi. 
 
 Therefore, while the manufacturing data meets this specification for the lots in total, it is not being met by all lots individually. 
 
@@ -111,14 +111,14 @@ The t-tests were conducted for the whole population as well as for each lot usin
 
 Based on the above t-test results, the true mean of the suspension coil population is 1,498.78 psi. Based on this population mean, Lot 1 shows evidence that the lot mean is different than the mean of the population based on a 95% confidence interval (0.05% significance level) as reported by its p-value less than 0.05. Note that the 95% confidence interval for this Lot is between 1,499.016 and 1,501.650, which is slightly above the 1,498.78 population mean. However, if we were to take 1,500 as the true population mean, then this would not be the case.
 
-As for Lot 2 and 3, the p-values resulting from their respective t-tests were above 0.05 (Lot 2 p-value was 0.38 and Lot 3 was 0.2351). Thus, there is insufficient evidence to reject the hypothesis that their means are different. Thefore, we would state that their means are statistically similar to that of the population.
+As for Lot 2 and 3, the p-values resulting from their respective t-tests were above 0.05 (Lot 2 p-value was 0.38 and Lot 3 was 0.2351). Thus, there is insufficient evidence to reject the hypothesis that their means are different. Therefore, we would state that their means are statistically similar to that of the population.
 
 
 ## Deliverable 4 - Study Design: MechaCar vs Competition
 
 When considering a statistical study to quantify how the MechaCar would perform against the competition, we would need to select metrics that are relevant to consumers. Although aesthetics, comfort and status projection are very important to car owners/operators, these are subjective values that are difficult to measure. A good measure of economic value would be lifetime cost of ownership. This would capture many aspects of owning a car, such as fuel efficiency, reliability, maintenance, price, resale value, etc.. It would also make for a fairer comparison between gasoline cars and new electric alternatives. Cost of ownership can even include recovery costs if the car is used to generate income. 
 
-Several other metrics can be considered to establish which factors most affect lifetime onwership cost (through linear regressions). These could include:
+Several other metrics can be considered to establish which factors most affect lifetime ownership cost (through linear regressions). These could include:
 
 * gallons per 100 miles
 * type (electric, hybrid, diesel or gas)
@@ -130,7 +130,7 @@ Several other metrics can be considered to establish which factors most affect l
 * miles driven
 * vibration from road (through potentiometers)
 
-Each of these metrics would need to be captured an collected in a database, and some would need to be converted into proxy numbers (for example brand and type) to facilitate regression computations.
+Each of these metrics would need to be captured and collected in a database, while some would need to be converted into proxy numbers (for example brand and type) to facilitate regression computations.
 
 The null hypothesis of our test would be that lifetime ownership cost is no different between MechaCar and the competition, while the alternative hypothesis would be that the MechaCar's lifetime ownership cost is different.
 
