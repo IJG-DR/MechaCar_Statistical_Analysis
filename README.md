@@ -67,7 +67,7 @@ The following box plot provides a better appreciation of the statistics for each
 
 For our third statistical analysis, we used *R*'s *t.test()* function to conduct t-tests to determine if all manufacturing lots and each lot individually are statistically different from the population mean of 1,500 pounds per square inch.
 
-Before conducting the different t-tests, we inspected the data to understand if it conformed to a normal distribution. This was done visually for the whole population as well as for each lot, using *ggplot2*'s *geom_density()* function. Then, we conducted a Shapiro-Wilk test using *R*'s *shapiro.test()* function on the whole population as well as on each lot. The results are as follows:
+Before conducting the different t-tests, we inspected the data to understand if it conformed to a normal distribution. This was done visually for the whole population as well as for each lot, using *ggplot2*'s *geom_density()* function. We also conducted a Shapiro-Wilk test using *R*'s *shapiro.test()* function on the whole population as well as on each lot. The results are as follows:
 
 
 ### Data for the Whole Population
@@ -93,9 +93,9 @@ Before conducting the different t-tests, we inspected the data to understand if 
 
 ![Shapiro Normality Tests](Resources/images/shapiro_normality_tests.png)
 
-In considering the data, we observed that visually both the population, Lot 2 and Lot 3 have minor skewness, and that only Lot 2 has a  a *p-value* greater than 0.05, and only Lot 2 would meet our significance level for the Shapiro-Wilks normality test. As a result, we opted for a minimum sample size greater than 20 for running the one sample t-tests, in order to rely on the *Central Limit Theorem* (source: https://www.spss-tutorials.com/spss-shapiro-wilk-test-for-normality/). 
+In considering the data, we observed that visually both the whole population, was well as Lot 2 and Lot 3 have minor skewness. In addition, only Lot 2 has a *p-value* greater than 0.05, thus only Lot 2 would meet our significance level for the Shapiro-Wilks normality test. Since we could not take for granted that all groups were normally distributed, we opted for a minimum sample size greater than 20 when running the one sample t-tests, in order to rely on the *Central Limit Theorem* for normality in the samples (source: https://www.spss-tutorials.com/spss-shapiro-wilk-test-for-normality/). 
 
-These t-tests were conducted for the whole population as well as for each lot using *R*'s *t.test()* function with the *subset* argument. A sample size of 30 was used to be on the safe side.
+The t-tests were conducted for the whole population as well as for each lot using *R*'s *t.test()* function with the *subset* argument. To be on the safe side, a sample size of 30 was used. The following images show the results for the four t-tests.
 
 ### T-Test for the Population
 ![One-Sample T-Test - Population](Resources/images/onesample_t-test_population.png)
@@ -109,9 +109,9 @@ These t-tests were conducted for the whole population as well as for each lot us
 ### T-Test for Lot 3
 ![One-Sample T-Test - Lot 3](Resources/images/onesample_t-test_lot3.png)
 
-Based on the above t-test results, the true mean of the suspension coil population is 1,498.78 psi. Based on this mean, for Lot 1 with a p-value less than 0.05, we can say that there is evidence that the mean for this lot is different than the mean of the population based on a 95% confidence interval (0.05% significance level). Note that the 95% confidence interval for this Lot is between 1,499.016 and 1,501.650, which is slightly above the 1,498.78 population mean. However, if we were to take 1,500 as the population mean, then this would not be the case.
+Based on the above t-test results, the true mean of the suspension coil population is 1,498.78 psi. Based on this population mean, Lot 1 shows evidence that the lot mean is different than the mean of the population based on a 95% confidence interval (0.05% significance level) as reported by its p-value less than 0.05. Note that the 95% confidence interval for this Lot is between 1,499.016 and 1,501.650, which is slightly above the 1,498.78 population mean. However, if we were to take 1,500 as the true population mean, then this would not be the case.
 
-As for Lot 2 and 3, the p-values resulting from their respective t-tests were above 0.05 (Lot 2 p-value was 0.38 and Lot 3 was 0.2351). Thus, there is insufficient evidence to reject the hypothesis that their means are different, thefore we would state that their means are statistically simila to that of the population.
+As for Lot 2 and 3, the p-values resulting from their respective t-tests were above 0.05 (Lot 2 p-value was 0.38 and Lot 3 was 0.2351). Thus, there is insufficient evidence to reject the hypothesis that their means are different. Thefore, we would state that their means are statistically similar to that of the population.
 
 
 ## Deliverable 4 - Study Design: MechaCar vs Competition
