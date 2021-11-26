@@ -17,7 +17,7 @@ Our first analysis consists of a multiple linear regression using *R*'s *lm()* f
 
 The resulting regression formula is:
 
-mpg = 6.267 vl + 0.001245 vw + 0.06877 sa + 3.546 gc - 3.411 AWD - 104.0
+*mpg = 6.267 vl + 0.001245 vw + 0.06877 sa + 3.546 gc - 3.411 AWD - 104.0*
 
 The following image shows the resulting *R* linear regression coefficients and their relative weights as well as the intercept.
 
@@ -93,7 +93,7 @@ Before conducting the different t-tests, we inspected the data to understand if 
 
 ![Shapiro Normality Tests](Resources/images/shapiro_normality_tests.png)
 
-In considering the data, we observed that visually both the whole population, as was well as Lot 2 and Lot 3 have minor skewness. In addition, only Lot 2 has a *p-value* greater than 0.05, thus only Lot 2 would meet our significance level for the Shapiro-Wilks normality test. Since we could not take for granted that all groups were normally distributed, we opted for a minimum sample size greater than 20 when running the one sample t-tests, in order to rely on the *Central Limit Theorem* for normality in the samples (source: https://www.spss-tutorials.com/spss-shapiro-wilk-test-for-normality/). 
+In considering the data, we observed that visually, both the whole population as was well as Lot 2 and Lot 3 have minor skewness. In addition, only Lot 2 has a *p-value* greater than 0.05, thus only Lot 2 would meet our significance level for the Shapiro-Wilks normality test. Since we could not take for granted that all groups were normally distributed, we opted for a minimum sample size greater than 20 when running the one sample t-tests, in order to rely on the *Central Limit Theorem* for normality in the samples (source: https://www.spss-tutorials.com/spss-shapiro-wilk-test-for-normality/). 
 
 The t-tests were conducted for the whole population as well as for each lot using *R*'s *t.test()* function with the *subset* argument. To be on the safe side, a sample size of 30 was used. The following images show the results for the four t-tests.
 
@@ -116,9 +116,9 @@ As for Lot 2 and 3, the p-values resulting from their respective t-tests were ab
 
 ## Deliverable 4 - Study Design: MechaCar vs Competition
 
-When considering a statistical study to quantify how the MechaCar would perform against the competition, we would need to select metrics that are relevant to consumers. Although aesthetics, comfort and status projection are very important to car owners/operators, these are subjective values that are difficult to measure. A good measure of economic value would be lifetime cost of ownership. This would capture many aspects of owning a car, such as fuel efficiency, reliability, maintenance, price, resale value, etc.. It will also make for a fairer comparison between gasoline cars and new electric alternatives. Cost of ownership can even include recovery costs if the car is used to generate income. 
+When considering a statistical study to quantify how the MechaCar would perform against the competition, we would need to select metrics that are relevant to consumers. Although aesthetics, comfort and status projection are very important to car owners/operators, these are subjective values that are difficult to measure. A good measure of economic value would be lifetime cost of ownership. This would capture many aspects of owning a car, such as fuel efficiency, reliability, maintenance, price, resale value, etc.. It would also make for a fairer comparison between gasoline cars and new electric alternatives. Cost of ownership can even include recovery costs if the car is used to generate income. 
 
-Several other metrics can be collected to establish which factors most affect lifetime onwership cost (through linear regressions). These could include:
+Several other metrics can be considered to establish which factors most affect lifetime onwership cost (through linear regressions). These could include:
 
 * gallons per 100 miles
 * type (electric, hybrid, diesel or gas)
@@ -130,15 +130,8 @@ Several other metrics can be collected to establish which factors most affect li
 * miles driven
 * vibration from road (through potentiometers)
 
+Each of these metrics would need to be captured an collected in a database, and some would need to be converted into proxy numbers (for example brand and type) to facilitate regression computations.
+
 The null hypothesis of our test would be that lifetime ownership cost is no different between MechaCar and the competition, while the alternative hypothesis would be that the MechaCar's lifetime ownership cost is different.
 
-We would conduct one-sided t-tests with the alternative hypothesis being that MechaCar's lifetime operating cost is less than that of the competition. We would also conduct linear regression on the different factors to determine which factors contribute most to lifetime operating costs.
-
-Write a short description of a statistical study that can quantify how the MechaCar performs against the competition. In your study design, think critically about what metrics would be of interest to a consumer: for a few examples, cost, city or highway fuel efficiency, horse power, maintenance cost, or safety rating.
-
-In your description, address the following questions:
-
-* What metric or metrics are you going to test?
-* What is the null hypothesis or alternative hypothesis?
-* What statistical test would you use to test the hypothesis? And why?
-* What data is needed to run the statistical test?
+We would conduct one-sided t-tests with the alternative hypothesis being that MechaCar's lifetime operating cost is less than that of the competition, the reason being that this would be our focus in order to capture a competitive advantage. We would also conduct linear regression on the different factors to determine which factors contribute most to lifetime operating costs, so that we can improve on those factors in our car designs and manufacturing processes.
